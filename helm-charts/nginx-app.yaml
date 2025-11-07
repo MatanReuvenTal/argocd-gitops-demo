@@ -1,29 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-app
+  name: nginx-ingress-app
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argocd.argoproj.io
+    - resources-finalizer.argoproj.io/delete-resources
 spec:
   project: default
 
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: nginx
-    targetRevision: 16.0.4
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    chart: ingress-nginx
+    targetRevision: 4.10.1
 
     helm:
       values: |
-        replicaCount: 2
-        
-        service:
-          type: NodePort
+        controller:
+          replicaCount: 2
+          
+          service:
+            type: NodePort
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx
-
+    namespace: nginx-ingress
 
   syncPolicy:
     automated:
