@@ -2,6 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: simple-node-app-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 data:
   MESSAGE: "Hello from my ConfigMap!"
   VERSION: "v1.1.0"

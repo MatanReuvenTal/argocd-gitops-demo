@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: simple-node-app
   namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   labels:
     app: simple-node-app
 spec:
