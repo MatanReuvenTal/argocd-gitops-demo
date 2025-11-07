@@ -5,5 +5,5 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 data:
-  MESSAGE: "Hello from my ConfigMap!"
+  MESSAGE: "Hello again, I am testing the hook"
   VERSION: "v1.1.0"
