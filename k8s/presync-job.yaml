@@ -2,7 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: presync-message-job
-  namespace: default
   annotations:
     argocd.argocj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
